@@ -2,10 +2,12 @@ import { Button } from "components/Button";
 import { GNB } from "components/GNB";
 import { GNB_TYPE, PRODUCTS } from "constants/common";
 import styled from "@emotion/styled";
-import React from "react";
+import React, {useContext} from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "context/CartContext";
 
-function ProductPage({ cart, setCart }) {
+function ProductPage({  }) {
+  const {cart, setCart} = useContext(CartContext);
   const { id } = useParams();
   const product = PRODUCTS[parseInt(id)];
 

@@ -1,10 +1,14 @@
+import React, {useContext} from "react";
 import styled from "@emotion/styled";
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
 import { PAGE } from "constants/common";
 import { Box } from "styles/StyleComponent";
+import { CartContext } from "context/CartContext";
 
-export const Product = ({ product, cart, setCart, ...rest }) => {
+export const Product = ({ product, ...rest }) => {
+  const {cart, setCart} = useContext(CartContext);
+  
   const navigate = useNavigate();
 
   const handleCart = (product) => {
