@@ -4,10 +4,15 @@ import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
 import { PAGE } from "constants/common";
 import { Box } from "styles/StyleComponent";
-import { CartContext } from "context/CartContext";
+// import { CartContext } from "context/CartContext";
+import { useCartStore } from "store/CartStore";
 
+
+  
 export const Product = ({ product, ...rest }) => {
-  const {cart, setCart} = useContext(CartContext);
+  const cart = useCartStore((state) => state.cart);
+  const setCart = useCartStore((state) => state.setCart);
+
   
   const navigate = useNavigate();
 

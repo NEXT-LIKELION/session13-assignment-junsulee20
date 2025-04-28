@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import ProductPage from "./pages/ProductPage";
-import { CartProvider } from "context/CartContext";
 
+// import { useCartStore } from "store/CartStore";
+
+// const { cart, setCart } = useCartStore();
 
 
 function App() {
 
 
   return (
-    <CartProvider>
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -25,7 +26,6 @@ function App() {
         />
       </Routes>
     </Router>
-    </CartProvider>
   );
 }
 

@@ -4,10 +4,15 @@ import { GNB_TYPE, PRODUCTS } from "constants/common";
 import styled from "@emotion/styled";
 import React, {useContext} from "react";
 import { useParams } from "react-router-dom";
-import { CartContext } from "context/CartContext";
+// import { CartContext } from "context/CartContext";
+import { useCartStore } from "store/CartStore";
+
+
 
 function ProductPage({  }) {
-  const {cart, setCart} = useContext(CartContext);
+  // const {cart, setCart} = useContext(CartContext);
+  const cart = useCartStore((state) => state.cart);
+  const setCart = useCartStore((state) => state.setCart);
   const { id } = useParams();
   const product = PRODUCTS[parseInt(id)];
 
